@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>autocomplete test submit</title>
+	<link rel="stylesheet" type="text/css" href="http://autocomplete-js.com/css/main.css">
+	<style>
+	#q {
+		width: 50em;
+		border: 1px solid black;
+	}
+	</style>
+</head>
+<body class="content">
+
+	<form action="/">
+		<input id="q" name="q" type="text">
+		<input type="submit">
+	</form>
+
+	{% if q %}
+  <div>
+		<span>submited value:</span> {{ q }}
+	</div>
+	{% endif %}
+
+	<script src="http://autocomplete-js.com/js/main.js"></script>
+	<script>
+	window.addEventListener('DOMContentLoaded', function () {
+		new AutoComplete({
+			Url:  "/autocomplete",
+			EmptyMessage: "No item found",
+			MinChars: 2,
+			Delay:300
+		}, "#q");
+	});
+	</script>
+</body>
+</html>
